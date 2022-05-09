@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: CM Team
+  description: The Constituent Mastering Team
+spec:
+  type: team
+  profile:
+    displayName: CM Team
+    email: cmteam@example.com
+    picture: https://example.com/groups/bu-infrastructure.jpeg
+  parent: its
+  children: [backstage, other]
+  members: [jdoe]
+  
