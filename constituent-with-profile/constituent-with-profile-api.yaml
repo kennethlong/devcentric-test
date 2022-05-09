@@ -25,6 +25,9 @@ metadata:
     - url: https://apmp1s1.alsac.stjude.org/#/service;serviceId=858cb3f87c9c0930a34a81837cd026d11b022f23/summary;callsTab=http;latencyTab=overTime?timeline.to&timeline.ws=86400000&snapshotId=w4hky8wckEysLeaRimb_ZxWzlS4&timeline.fm&timeline.ar=false
       title: Instana
       icon: heart
+    - url: https://sciencelogic.stjude.org/em7/index.em7?exec=events
+      title: ScienceLogic
+      icon: science
     - url: https://alsacwiki.stjude.org/display/MOB/Implementation+of+Constituent+With+Profile+%28CWP%29+Service
       title: Implementation Notes
       icon: notes      
