@@ -10,3 +10,4 @@ spec:
   system: constituent
   providesApis:
     - constituent-search
+  apiConsumedBy: ['api:constituent-with-profile']

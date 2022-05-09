@@ -39,4 +39,4 @@ spec:
   definition:
     $text: https://github.com/kennethlong/devcentric-test/blob/main/constituent-with-profile/swagger.json
   consumesApis:
-    - constituent-search
+    - 'component:constituent-search'
