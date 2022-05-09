@@ -38,5 +38,7 @@ spec:
   system: constituent
   consumesApis:
     - constituent-search
+  dependsOn: 
+    - constituent-search
   definition:
     $text: https://github.com/kennethlong/devcentric-test/blob/main/constituent-with-profile/swagger.json
