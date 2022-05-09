@@ -7,6 +7,9 @@ metadata:
     - url: https://github.com/kennethlong/devcentric-test/tree/main
       title: Source Code
       icon: code  
+    - url: https://apmp1s1.alsac.stjude.org/#/service;serviceId=858cb3f87c9c0930a34a81837cd026d11b022f23/summary;callsTab=http;latencyTab=overTime?timeline.to&timeline.ws=86400000&snapshotId=w4hky8wckEysLeaRimb_ZxWzlS4&timeline.fm&timeline.ar=false
+      title: Instana
+      icon: monitorheart
 spec:
   type: openapi
   lifecycle: production
