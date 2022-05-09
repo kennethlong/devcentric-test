@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
-  name: CM Team
+  name: cm-team
   description: The Constituent Mastering Team
 spec:
   type: team
@@ -12,4 +12,3 @@ spec:
   parent: its
   children: [backstage, other]
   members: [jdoe]
-  
