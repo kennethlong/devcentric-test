@@ -12,4 +12,4 @@ spec:
   lifecycle: production
   owner: team-cm
   definition:
-    $text: https://constituent-with-profile.apps.dev.alsac.stjude.org/swagger/v1/swagger.json
+    $text: https://github.com/kennethlong/devcentric-test/blob/main/constituent-with-profile/swagger.json
