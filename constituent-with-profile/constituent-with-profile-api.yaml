@@ -6,10 +6,25 @@ metadata:
   links:
     - url: https://github.com/kennethlong/devcentric-test/tree/main
       title: Source Code
-      icon: code  
+      icon: github
+    - url: https://console-openshift-console.apps.devs1.alsac.stjude.org/topology/ns/cm-constituent?view=graph&selectId=b617162d-b74e-4120-a233-e4c9fe1dee75
+      title: Pods
+      icon: kubernetes
+    - url: https://checkmarxip1s1.alsac.local/cxwebclient/portal#/projectState/336/Summary
+      title: Checkmarx
+      icon: security
+    - url: https://jenkins-cm-constituent-build.apps.devs1.alsac.stjude.org/job/cm-constituent-build-constituent-with-profile-dev-pipeline/
+      title: Pipeline
+      icon: jenkins
+    - url: https://lrpmp2s4.alsac.local:8443/searches
+      title: LogRhythm
+      icon: logs
     - url: https://apmp1s1.alsac.stjude.org/#/service;serviceId=858cb3f87c9c0930a34a81837cd026d11b022f23/summary;callsTab=http;latencyTab=overTime?timeline.to&timeline.ws=86400000&snapshotId=w4hky8wckEysLeaRimb_ZxWzlS4&timeline.fm&timeline.ar=false
       title: Instana
       icon: monitorheart
+    - url: https://alsacwiki.stjude.org/display/MOB/Implementation+of+Constituent+With+Profile+%28CWP%29+Service
+      title: Implementation Notes
+      icon: notes      
 spec:
   type: openapi
   lifecycle: production
