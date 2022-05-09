@@ -35,6 +35,6 @@ spec:
   type: openapi
   lifecycle: production
   owner: team-cm
-  system: cm-constituent
+  system: constituent
   definition:
     $text: https://github.com/kennethlong/devcentric-test/blob/main/constituent-with-profile/swagger.json
