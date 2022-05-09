@@ -1,0 +1,4100 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "ConstituentWithProfile v1",
+      "description": "System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e System.Private.CoreLib",
+      "version": "1"
+    },
+    "servers": [
+      {
+        "url": "https://constituent-with-profile.apps.dev.alsac.stjude.org"
+      }
+    ],
+    "paths": {
+      "/v1/address/{addressId}": {
+        "get": {
+          "tags": [
+            "Address"
+          ],
+          "summary": "Fetch a List of Addresses.",
+          "operationId": "Address:GET:v1/address/{addressId}",
+          "parameters": [
+            {
+              "name": "addressId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "preferred",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "integer",
+                "description": "",
+                "format": "int32",
+                "default": 0
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelListApiResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelListApiResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelListApiResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/constituent/{id}/address": {
+        "get": {
+          "tags": [
+            "Address"
+          ],
+          "summary": "Fetch a list of addresses based on ConstituentId.",
+          "description": "",
+          "operationId": "Address:GET:v1/constituent/{id}/address",
+          "parameters": [
+            {
+              "name": "constituentId",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "string",
+                "description": "",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelListApiResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelListApiResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelListApiResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/address": {
+        "post": {
+          "tags": [
+            "Address"
+          ],
+          "summary": "Creates an address",
+          "operationId": "Address:POST:v1/address",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressModelApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressModelApiResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressModelApiResponse"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelApiResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelApiResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelApiResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Address"
+          ],
+          "summary": "Updates an address",
+          "operationId": "Address:PUT:v1/address",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressModelApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressModelApiResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressModelApiResponse"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelApiResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelApiResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AddressModelApiResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/alias/{id}": {
+        "get": {
+          "tags": [
+            "Alias"
+          ],
+          "summary": "Fetch a list of aliases.",
+          "description": "",
+          "operationId": "Alias:GET:v1/alias/{id}",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "preferred",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "integer",
+                "description": "",
+                "format": "int32",
+                "default": 0
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelApiResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelApiResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelApiResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/constituent/{constituentId}/alias": {
+        "get": {
+          "tags": [
+            "Alias"
+          ],
+          "summary": "Fetch a list of Constituent aliases.",
+          "description": "",
+          "operationId": "Alias:GET:v1/constituent/{constituentId}/alias",
+          "parameters": [
+            {
+              "name": "constituentId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "preferred",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "integer",
+                "description": "",
+                "format": "int32",
+                "default": 0
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelListApiResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelListApiResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelListApiResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/alias": {
+        "post": {
+          "tags": [
+            "Alias"
+          ],
+          "summary": "Creates an alias",
+          "operationId": "Alias:POST:v1/alias",
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AliasModelApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AliasModelApiResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AliasModelApiResponse"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelApiResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelApiResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelApiResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Alias"
+          ],
+          "summary": "Updates an alias",
+          "operationId": "Alias:PUT:v1/alias",
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AliasModelApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AliasModelApiResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AliasModelApiResponse"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelApiResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelApiResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AliasModelApiResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/config": {
+        "get": {
+          "tags": [
+            "Config"
+          ],
+          "operationId": "Config:GET:config",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConfigResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Config"
+          ],
+          "operationId": "Config:PUT:config",
+          "parameters": [
+            {
+              "name": "level",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/config/reload": {
+        "put": {
+          "tags": [
+            "Config"
+          ],
+          "operationId": "Config:PUT:config/reload",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/constituent/{constituentId}/profile": {
+        "get": {
+          "tags": [
+            "ConstituentProfile"
+          ],
+          "summary": "Gets a constituent and all of its attributes.",
+          "operationId": "ConstituentProfile:GET:v1/constituent/{constituentId}/profile",
+          "parameters": [
+            {
+              "name": "constituentId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "format": "uuid",
+                "nullable": true
+              }
+            },
+            {
+              "name": "preferred",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "integer",
+                "description": "",
+                "format": "int32",
+                "default": 0
+              }
+            },
+            {
+              "name": "activeOnly",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "boolean",
+                "description": "",
+                "default": false
+              }
+            },
+            {
+              "name": "include",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "string",
+                "description": "",
+                "default": "address,email,phone,preference,interest,property,relationship,preferred,alternateid,alias",
+                "nullable": true
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileDTOReadResp"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileDTOReadResp"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileDTOReadResp"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/constituent/profile": {
+        "post": {
+          "tags": [
+            "ConstituentProfile"
+          ],
+          "summary": "Creates a constituent profile.\r\nA 409 on any piece of the profile says the entity already exists. Every entity has a field\r\ncalled HTTPCode that will indicate the 409. \r\nThis operation checks to see if the constituent exists before creating. It also checks to see\r\nif the address exists in Infutor/Inrichment.",
+          "operationId": "ConstituentProfile:POST:v1/constituent/profile",
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "ConstituentProfile"
+          ],
+          "summary": "Update a constituent profile",
+          "operationId": "ConstituentProfile:PUT:v1/constituent/profile",
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/constituent/search": {
+        "post": {
+          "tags": [
+            "ConstituentProfile"
+          ],
+          "summary": "Searches for a constituent. If available it will return the address,\r\nphone and email with the constituent.",
+          "operationId": "ConstituentProfile:POST:v1/constituent/search",
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentSearchReqDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentSearchReqDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentSearchReqDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentSearchResultDto"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentSearchResultDto"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentSearchResultDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/constituent/search/result/{resultId}": {
+        "get": {
+          "tags": [
+            "ConstituentProfile"
+          ],
+          "summary": "Returns the cached result, the page, and the number of results(pageSize) on a page requested",
+          "operationId": "ConstituentProfile:GET:v1/constituent/search/result/{resultId}",
+          "parameters": [
+            {
+              "name": "resultId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "format": "uuid",
+                "nullable": true
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "integer",
+                "description": "",
+                "format": "int32",
+                "default": 100
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "integer",
+                "description": "",
+                "format": "int32",
+                "default": 1
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentSearchResultDto"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentSearchResultDto"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentSearchResultDto"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/constituent/alternate-id/{altId}/type/{altIdType}": {
+        "post": {
+          "tags": [
+            "ConstituentProfile"
+          ],
+          "summary": "Creates a constituent using an alternate ID. In the body, the constituent type is required. The Service will populate entity guids in the backend. \r\nWe search on the alternate-id first. If one exists, we update the entity. If not, we create the constituent.",
+          "operationId": "ConstituentProfile:POST:v1/constituent/alternate-id/{altId}/type/{altIdType}",
+          "parameters": [
+            {
+              "name": "altId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "nullable": true
+              }
+            },
+            {
+              "name": "altIdType",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "nullable": true
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "ConstituentProfile"
+          ],
+          "summary": "Updates a constituent using an alternate-id. In the body, the constituent type is required. The Service will populate entity guids in the backend. \r\nWe search on the alternate-id first. If one exists, we update the entity. If not, we create the constituent.",
+          "operationId": "ConstituentProfile:PUT:v1/constituent/alternate-id/{altId}/type/{altIdType}",
+          "parameters": [
+            {
+              "name": "altId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "nullable": true
+              }
+            },
+            {
+              "name": "altIdType",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "nullable": true
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConstituentProfileWriteDTO"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/health": {
+        "get": {
+          "tags": [
+            "Health"
+          ],
+          "operationId": "Health:GET:health",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SubsystemStatusResponseDto"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/heartbeat": {
+        "get": {
+          "tags": [
+            "Heartbeat"
+          ],
+          "operationId": "Heartbeat:GET:heartbeat",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/phone/{id}/preference": {
+        "get": {
+          "tags": [
+            "Phone"
+          ],
+          "summary": "Fetch a list of phone preferences By phoneId",
+          "description": "",
+          "operationId": "Phone:GET:v1/phone/{id}/preference",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid",
+                "nullable": true
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PhonePreference"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PhonePreference"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PhonePreference"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/phone/{phoneNumber}/preferences": {
+        "get": {
+          "tags": [
+            "Phone"
+          ],
+          "summary": "Fetch a list of phone preferences by phoneNumber",
+          "description": "",
+          "operationId": "Phone:GET:v1/phone/{phoneNumber}/preferences",
+          "parameters": [
+            {
+              "name": "phoneNumber",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "nullable": true
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PhonePreference"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PhonePreference"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PhonePreference"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/phone/preference": {
+        "post": {
+          "tags": [
+            "Phone"
+          ],
+          "summary": "Creates a new phone preference",
+          "operationId": "Phone:POST:v1/phone/preference",
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhonePreferenceWriteRequestDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhonePreferenceWriteRequestDTO"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhonePreferenceWriteRequestDTO"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PhonePreferenceWriteResponseDTO"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PhonePreferenceWriteResponseDTO"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PhonePreferenceWriteResponseDTO"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Phone"
+          ],
+          "summary": "Updates a phone preference",
+          "operationId": "Phone:PUT:v1/phone/preference",
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhonePreferenceWriteRequestDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhonePreferenceWriteRequestDTO"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhonePreferenceWriteRequestDTO"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PhonePreferenceWriteResponseDTO"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PhonePreferenceWriteResponseDTO"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PhonePreferenceWriteResponseDTO"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/constituent/{constituentId}/preference/{preferenceId}": {
+        "get": {
+          "tags": [
+            "Preference"
+          ],
+          "summary": "Gets a given preference on a given constituent",
+          "operationId": "Preference:GET:v1/constituent/{constituentId}/preference/{preferenceId}",
+          "parameters": [
+            {
+              "name": "constituentId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "format": "uuid",
+                "nullable": true
+              }
+            },
+            {
+              "name": "preferenceId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "format": "uuid",
+                "nullable": true
+              }
+            },
+            {
+              "name": "activeOnly",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "boolean",
+                "description": "",
+                "default": false
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/constituent/{constituentId}/preference": {
+        "get": {
+          "tags": [
+            "Preference"
+          ],
+          "summary": "Gets all preferences associated with a given constituent",
+          "operationId": "Preference:GET:v1/constituent/{constituentId}/preference",
+          "parameters": [
+            {
+              "name": "constituentId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "format": "uuid",
+                "nullable": true
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceModel"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceModel"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceModel"
+                    }
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/preference/{preferenceId}": {
+        "get": {
+          "tags": [
+            "Preference"
+          ],
+          "summary": "Gets a preference by its ID",
+          "operationId": "Preference:GET:v1/preference/{preferenceId}",
+          "parameters": [
+            {
+              "name": "preferenceId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "format": "uuid",
+                "nullable": true
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/preference/type": {
+        "get": {
+          "tags": [
+            "Preference"
+          ],
+          "summary": "Gets all preferences with the given description",
+          "operationId": "Preference:GET:v1/preference/type",
+          "parameters": [
+            {
+              "name": "description",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "string",
+                "description": "",
+                "nullable": true
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceModel"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceModel"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceModel"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/preference/value/type": {
+        "get": {
+          "tags": [
+            "Preference"
+          ],
+          "summary": "Gets all preference values with the given description",
+          "operationId": "Preference:GET:v1/preference/value/type",
+          "parameters": [
+            {
+              "name": "description",
+              "in": "query",
+              "description": "",
+              "schema": {
+                "type": "string",
+                "description": "",
+                "nullable": true
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceValueModel"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceValueModel"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceValueModel"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/preference/value/{preferenceValueId}": {
+        "get": {
+          "tags": [
+            "Preference"
+          ],
+          "summary": "Gets the preference value given by the ID",
+          "operationId": "Preference:GET:v1/preference/value/{preferenceValueId}",
+          "parameters": [
+            {
+              "name": "preferenceValueId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "format": "uuid",
+                "nullable": true
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceValueModel"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceValueModel"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceValueModel"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/preference/value/preference/{preferenceId}": {
+        "get": {
+          "tags": [
+            "Preference"
+          ],
+          "summary": "Gets all preferences values associated with a given preference ID",
+          "operationId": "Preference:GET:v1/preference/value/preference/{preferenceId}",
+          "parameters": [
+            {
+              "name": "preferenceId",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "",
+                "format": "uuid",
+                "nullable": true
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceValueModel"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceValueModel"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PreferenceValueModel"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/preference": {
+        "post": {
+          "tags": [
+            "Preference"
+          ],
+          "summary": "Creates a new preference",
+          "operationId": "Preference:POST:v1/preference",
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreferenceModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreferenceModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreferenceModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Preference"
+          ],
+          "summary": "Updates a preference",
+          "operationId": "Preference:PUT:v1/preference",
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreferenceModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreferenceModel"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreferenceModel"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PreferenceModel"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/version": {
+        "get": {
+          "tags": [
+            "Version"
+          ],
+          "operationId": "Version:GET:version",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/VersionResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "AddressModel": {
+          "required": [
+            "address",
+            "city"
+          ],
+          "type": "object",
+          "properties": {
+            "httpCode": {
+              "type": "string",
+              "nullable": true
+            },
+            "addressId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "addressType": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "preferred": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "address": {
+              "maxLength": 300,
+              "type": "string"
+            },
+            "extraLine1": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "extraLine2": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "city": {
+              "maxLength": 100,
+              "type": "string"
+            },
+            "state": {
+              "maxLength": 3,
+              "type": "string",
+              "nullable": true
+            },
+            "zip": {
+              "maxLength": 8,
+              "type": "string",
+              "nullable": true
+            },
+            "zipExt": {
+              "maxLength": 8,
+              "type": "string",
+              "nullable": true
+            },
+            "country": {
+              "maxLength": 4,
+              "type": "string",
+              "nullable": true
+            },
+            "addressPid": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "vendorName": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "latitude": {
+              "type": "string",
+              "nullable": true
+            },
+            "longitude": {
+              "type": "string",
+              "nullable": true
+            },
+            "status": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "comments": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "user": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            },
+            "channel": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "matched": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorInfo": {
+          "type": "object",
+          "properties": {
+            "errorMessage": {
+              "type": "string",
+              "nullable": true
+            },
+            "errorDetail": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "AddressModelListApiResponse": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AddressModel"
+              },
+              "nullable": true
+            },
+            "error": {
+              "$ref": "#/components/schemas/ErrorInfo"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ProblemDetails": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "nullable": true
+            },
+            "title": {
+              "type": "string",
+              "nullable": true
+            },
+            "status": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "detail": {
+              "type": "string",
+              "nullable": true
+            },
+            "instance": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": { }
+        },
+        "AddressModelApiResponse": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/AddressModel"
+            },
+            "error": {
+              "$ref": "#/components/schemas/ErrorInfo"
+            }
+          },
+          "additionalProperties": false
+        },
+        "AliasModel": {
+          "type": "object",
+          "properties": {
+            "httpCode": {
+              "type": "string",
+              "nullable": true
+            },
+            "aliasId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "aliasType": {
+              "type": "string",
+              "nullable": true
+            },
+            "preferred": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "title": {
+              "type": "string",
+              "nullable": true
+            },
+            "firstName": {
+              "type": "string",
+              "nullable": true
+            },
+            "middleName": {
+              "type": "string",
+              "nullable": true
+            },
+            "lastName": {
+              "type": "string",
+              "nullable": true
+            },
+            "suffix": {
+              "type": "string",
+              "nullable": true
+            },
+            "user": {
+              "type": "string",
+              "nullable": true
+            },
+            "channel": {
+              "type": "string",
+              "nullable": true
+            },
+            "matched": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "AliasModelApiResponse": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/AliasModel"
+            },
+            "error": {
+              "$ref": "#/components/schemas/ErrorInfo"
+            }
+          },
+          "additionalProperties": false
+        },
+        "AliasModelListApiResponse": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AliasModel"
+              },
+              "nullable": true
+            },
+            "error": {
+              "$ref": "#/components/schemas/ErrorInfo"
+            }
+          },
+          "additionalProperties": false
+        },
+        "LogEventLevel": {
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "type": "integer",
+          "format": "int32"
+        },
+        "ConfigResponseDto": {
+          "type": "object",
+          "properties": {
+            "dbServer": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "aspNetVersion": {
+              "type": "string",
+              "nullable": true
+            },
+            "osVersion": {
+              "type": "string",
+              "nullable": true
+            },
+            "logMinimumLevel": {
+              "$ref": "#/components/schemas/LogEventLevel"
+            },
+            "environment": {
+              "type": "string",
+              "nullable": true
+            },
+            "additional": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "PhoneModel": {
+          "required": [
+            "phoneNumber"
+          ],
+          "type": "object",
+          "properties": {
+            "httpCode": {
+              "type": "string",
+              "nullable": true
+            },
+            "phoneId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "preferred": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "phoneType": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "phoneNumber": {
+              "maxLength": 40,
+              "minLength": 8,
+              "type": "string"
+            },
+            "phoneExtension": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "status": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "comments": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "user": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            },
+            "channel": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "matched": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "EmailModel": {
+          "required": [
+            "emailAddress"
+          ],
+          "type": "object",
+          "properties": {
+            "httpCode": {
+              "type": "string",
+              "nullable": true
+            },
+            "emailId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "preferred": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "emailType": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "emailAddress": {
+              "maxLength": 256,
+              "type": "string"
+            },
+            "status": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "comments": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "user": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            },
+            "channel": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "matched": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "InterestModel": {
+          "type": "object",
+          "properties": {
+            "httpCode": {
+              "type": "string",
+              "nullable": true
+            },
+            "constituentInterestId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "interestId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "interest": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "status": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "comments": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "user": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            },
+            "channel": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "matched": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "PreferenceModel": {
+          "type": "object",
+          "properties": {
+            "httpCode": {
+              "type": "string",
+              "nullable": true
+            },
+            "constituentPreferenceId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "preferenceId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "preferenceValueId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "preference": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "preferenceValue": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "startDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "endDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "status": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "comments": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "user": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            },
+            "channel": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "matched": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RelationshipModel": {
+          "type": "object",
+          "properties": {
+            "httpCode": {
+              "type": "string",
+              "nullable": true
+            },
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "relatedConstituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "relationshipId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "relationshipTypeLookupId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "reciprocalTypeLookupId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "relationshipType": {
+              "maxLength": 60,
+              "type": "string",
+              "nullable": true
+            },
+            "reciprocalRelationshipType": {
+              "maxLength": 60,
+              "type": "string",
+              "nullable": true
+            },
+            "status": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "comments": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "user": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            },
+            "channel": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "startDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "endDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "companyMatch": {
+              "type": "boolean"
+            },
+            "matched": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "PropertyModel": {
+          "type": "object",
+          "properties": {
+            "httpCode": {
+              "type": "string",
+              "nullable": true
+            },
+            "constituentPropertyId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "propertyId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "property": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "status": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "comments": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "user": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            },
+            "channel": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "startDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "endDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "matched": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "AlternateIdModel": {
+          "type": "object",
+          "properties": {
+            "httpCode": {
+              "type": "string",
+              "nullable": true
+            },
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "alternateSystemName": {
+              "type": "string",
+              "nullable": true
+            },
+            "alternateId": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "secondaryAlternateId": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "user": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            },
+            "channel": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "matched": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ComposedConstituentModelReadResp": {
+          "type": "object",
+          "properties": {
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "constituentType": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "taLookupId": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "dmsLookupId": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "uuid": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "vendor": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "vendorPersonId": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "preferred": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "staff": {
+              "maxLength": 105,
+              "type": "string",
+              "nullable": true
+            },
+            "status": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "name": {
+              "maxLength": 200,
+              "type": "string",
+              "nullable": true
+            },
+            "title": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "firstName": {
+              "maxLength": 100,
+              "type": "string",
+              "nullable": true
+            },
+            "middleName": {
+              "maxLength": 100,
+              "type": "string",
+              "nullable": true
+            },
+            "lastName": {
+              "maxLength": 200,
+              "type": "string",
+              "nullable": true
+            },
+            "suffix": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "gender": {
+              "maxLength": 1,
+              "type": "string",
+              "nullable": true
+            },
+            "ageRange": {
+              "maxLength": 7,
+              "type": "string",
+              "nullable": true
+            },
+            "birthDay": {
+              "maxLength": 2,
+              "type": "string",
+              "nullable": true
+            },
+            "birthMonth": {
+              "maxLength": 2,
+              "type": "string",
+              "nullable": true
+            },
+            "birthYear": {
+              "maxLength": 4,
+              "type": "string",
+              "nullable": true
+            },
+            "birthDate": {
+              "maxLength": 12,
+              "type": "string",
+              "nullable": true
+            },
+            "deceased": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "deceasedDay": {
+              "maxLength": 2,
+              "type": "string",
+              "nullable": true
+            },
+            "deceasedMonth": {
+              "maxLength": 2,
+              "type": "string",
+              "nullable": true
+            },
+            "deceasedYear": {
+              "maxLength": 4,
+              "type": "string",
+              "nullable": true
+            },
+            "deceasedDate": {
+              "maxLength": 12,
+              "type": "string",
+              "nullable": true
+            },
+            "maidenName": {
+              "maxLength": 200,
+              "type": "string",
+              "nullable": true
+            },
+            "maritalStatus": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "marriedDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "numChildren": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "numGrandChildren": {
+              "maximum": 300,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "salutation": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "comments": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "vip": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "channel": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "customName": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "user": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            },
+            "matched": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "httpCode": {
+              "type": "string",
+              "nullable": true
+            },
+            "addresses": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AddressModel"
+              },
+              "nullable": true
+            },
+            "phones": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PhoneModel"
+              },
+              "nullable": true
+            },
+            "emails": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/EmailModel"
+              },
+              "nullable": true
+            },
+            "interests": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/InterestModel"
+              },
+              "nullable": true
+            },
+            "preferences": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PreferenceModel"
+              },
+              "nullable": true
+            },
+            "relationships": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/RelationshipModel"
+              },
+              "nullable": true
+            },
+            "properties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PropertyModel"
+              },
+              "nullable": true
+            },
+            "alternateIds": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AlternateIdModel"
+              },
+              "nullable": true
+            },
+            "aliases": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AliasModel"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorModel": {
+          "type": "object",
+          "properties": {
+            "errorMessage": {
+              "type": "string",
+              "nullable": true
+            },
+            "errorDetail": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ConstituentProfileDTOReadResp": {
+          "type": "object",
+          "properties": {
+            "constituent": {
+              "$ref": "#/components/schemas/ComposedConstituentModelReadResp"
+            },
+            "error": {
+              "$ref": "#/components/schemas/ErrorModel"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ComposedConstituentModelWrite": {
+          "required": [
+            "constituentType"
+          ],
+          "type": "object",
+          "properties": {
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "constituentType": {
+              "maxLength": 45,
+              "type": "string"
+            },
+            "taLookupId": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "dmsLookupId": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "uuid": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "vendor": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "vendorPersonId": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "preferred": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "staff": {
+              "maxLength": 105,
+              "type": "string",
+              "nullable": true
+            },
+            "status": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "name": {
+              "maxLength": 200,
+              "type": "string",
+              "nullable": true
+            },
+            "title": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "firstName": {
+              "maxLength": 100,
+              "type": "string",
+              "nullable": true
+            },
+            "middleName": {
+              "maxLength": 100,
+              "type": "string",
+              "nullable": true
+            },
+            "lastName": {
+              "maxLength": 200,
+              "type": "string",
+              "nullable": true
+            },
+            "suffix": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "gender": {
+              "maxLength": 1,
+              "type": "string",
+              "nullable": true
+            },
+            "ageRange": {
+              "maxLength": 7,
+              "type": "string",
+              "nullable": true
+            },
+            "birthDay": {
+              "maxLength": 2,
+              "type": "string",
+              "nullable": true
+            },
+            "birthMonth": {
+              "maxLength": 2,
+              "type": "string",
+              "nullable": true
+            },
+            "birthYear": {
+              "maxLength": 4,
+              "type": "string",
+              "nullable": true
+            },
+            "birthDate": {
+              "maxLength": 12,
+              "type": "string",
+              "nullable": true
+            },
+            "deceased": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "deceasedDay": {
+              "maxLength": 2,
+              "type": "string",
+              "nullable": true
+            },
+            "deceasedMonth": {
+              "maxLength": 2,
+              "type": "string",
+              "nullable": true
+            },
+            "deceasedYear": {
+              "maxLength": 4,
+              "type": "string",
+              "nullable": true
+            },
+            "deceasedDate": {
+              "maxLength": 12,
+              "type": "string",
+              "nullable": true
+            },
+            "maidenName": {
+              "maxLength": 200,
+              "type": "string",
+              "nullable": true
+            },
+            "maritalStatus": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "marriedDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "numChildren": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "numGrandChildren": {
+              "maximum": 300,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "salutation": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "comments": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "vip": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "channel": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "customName": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "user": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            },
+            "matched": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "httpCode": {
+              "type": "string",
+              "nullable": true
+            },
+            "addresses": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AddressModel"
+              },
+              "nullable": true
+            },
+            "phones": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PhoneModel"
+              },
+              "nullable": true
+            },
+            "emails": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/EmailModel"
+              },
+              "nullable": true
+            },
+            "interests": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/InterestModel"
+              },
+              "nullable": true
+            },
+            "preferences": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PreferenceModel"
+              },
+              "nullable": true
+            },
+            "relationships": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/RelationshipModel"
+              },
+              "nullable": true
+            },
+            "properties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PropertyModel"
+              },
+              "nullable": true
+            },
+            "alternateIds": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AlternateIdModel"
+              },
+              "nullable": true
+            },
+            "aliases": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AliasModel"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ConstituentProfileWriteDTO": {
+          "type": "object",
+          "properties": {
+            "constituent": {
+              "$ref": "#/components/schemas/ComposedConstituentModelWrite"
+            },
+            "error": {
+              "$ref": "#/components/schemas/ErrorModel"
+            }
+          },
+          "additionalProperties": false
+        },
+        "AlternateId": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "maxLength": 200,
+              "type": "string",
+              "nullable": true
+            },
+            "id": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Address": {
+          "type": "object",
+          "properties": {
+            "vendorId": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "streetAddress": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "city": {
+              "maxLength": 100,
+              "type": "string",
+              "nullable": true
+            },
+            "state": {
+              "maxLength": 3,
+              "type": "string",
+              "nullable": true
+            },
+            "zip": {
+              "maxLength": 8,
+              "type": "string",
+              "nullable": true
+            },
+            "country": {
+              "maxLength": 4,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Phone": {
+          "type": "object",
+          "properties": {
+            "phoneNumber": {
+              "maxLength": 40,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Email": {
+          "type": "object",
+          "properties": {
+            "emailAddress": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "SearchRequest": {
+          "type": "object",
+          "properties": {
+            "echoId": {
+              "type": "string",
+              "nullable": true
+            },
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "uuid": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "firstname": {
+              "type": "string",
+              "nullable": true
+            },
+            "middleName": {
+              "type": "string",
+              "nullable": true
+            },
+            "lastName": {
+              "type": "string",
+              "nullable": true
+            },
+            "requestedConstituentType": {
+              "type": "string",
+              "nullable": true
+            },
+            "financialTransactionId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "commitmentId": {
+              "type": "string",
+              "nullable": true
+            },
+            "alternateIds": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AlternateId"
+              },
+              "nullable": true
+            },
+            "addresses": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Address"
+              },
+              "nullable": true
+            },
+            "phones": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Phone"
+              },
+              "nullable": true
+            },
+            "emails": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Email"
+              },
+              "nullable": true
+            },
+            "deduplicateResults": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "prospectOnly": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "vipOnly": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "pageSize": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "pageNumber": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "exactMatch": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "cacheResults": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ConstituentSearchReqDto": {
+          "type": "object",
+          "properties": {
+            "searchRequest": {
+              "$ref": "#/components/schemas/SearchRequest"
+            }
+          },
+          "additionalProperties": false
+        },
+        "SearchResult": {
+          "type": "object",
+          "properties": {
+            "resultsCount": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "resultId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "echoId": {
+              "type": "string",
+              "nullable": true
+            },
+            "matchCount": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "constituentId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "uuid": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "constituentType": {
+              "type": "string",
+              "nullable": true
+            },
+            "status": {
+              "type": "string",
+              "nullable": true
+            },
+            "addressId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "address": {
+              "type": "string",
+              "nullable": true
+            },
+            "city": {
+              "type": "string",
+              "nullable": true
+            },
+            "state": {
+              "type": "string",
+              "nullable": true
+            },
+            "zip": {
+              "type": "string",
+              "nullable": true
+            },
+            "country": {
+              "type": "string",
+              "nullable": true
+            },
+            "phoneId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "phoneNumber": {
+              "type": "string",
+              "nullable": true
+            },
+            "emailId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "emailAddress": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ConstituentSearchResultDto": {
+          "type": "object",
+          "properties": {
+            "searchResults": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SearchResult"
+              },
+              "nullable": true
+            },
+            "error": {
+              "$ref": "#/components/schemas/ErrorModel"
+            }
+          },
+          "additionalProperties": false
+        },
+        "SubsystemStatusResponseItem": {
+          "type": "object",
+          "properties": {
+            "subsystemName": {
+              "type": "string",
+              "nullable": true
+            },
+            "subsystemUp": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "SubsystemStatusResponseDto": {
+          "type": "object",
+          "properties": {
+            "subsystems": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SubsystemStatusResponseItem"
+              },
+              "nullable": true
+            },
+            "overallSystemUp": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "PhonePreference": {
+          "required": [
+            "phoneId",
+            "phoneNumber"
+          ],
+          "type": "object",
+          "properties": {
+            "phoneId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "phoneNumber": {
+              "maxLength": 40,
+              "minLength": 8,
+              "type": "string"
+            },
+            "preferenceId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "description": {
+              "maxLength": 600,
+              "type": "string",
+              "nullable": true
+            },
+            "preferenceValueId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "preferenceValue": {
+              "maxLength": 80,
+              "type": "string",
+              "nullable": true
+            },
+            "startDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "endDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "status": {
+              "maxLength": 300,
+              "type": "string",
+              "nullable": true
+            },
+            "comments": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "user": {
+              "maxLength": 256,
+              "type": "string",
+              "nullable": true
+            },
+            "channel": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "matched": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "boolean",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "PhonePreferenceWriteRequestDTO": {
+          "type": "object",
+          "properties": {
+            "phonePreference": {
+              "$ref": "#/components/schemas/PhonePreference"
+            }
+          },
+          "additionalProperties": false
+        },
+        "Error": {
+          "type": "object",
+          "properties": {
+            "errorMessage": {
+              "type": "string",
+              "nullable": true
+            },
+            "errorDetail": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "PhonePreferenceWriteResponseDTO": {
+          "type": "object",
+          "properties": {
+            "phonePreference": {
+              "$ref": "#/components/schemas/PhonePreference"
+            },
+            "error": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "additionalProperties": false
+        },
+        "PreferenceValueModel": {
+          "type": "object",
+          "properties": {
+            "preferenceValueId": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "description": {
+              "maxLength": 600,
+              "type": "string",
+              "nullable": true
+            },
+            "status": {
+              "maxLength": 600,
+              "type": "string",
+              "nullable": true
+            },
+            "value": {
+              "maxLength": 80,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "VersionResponseDto": {
+          "type": "object",
+          "properties": {
+            "versionNumber": {
+              "type": "string",
+              "nullable": true
+            },
+            "buildDate": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
