@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
   name: constituent-with-profile
-  description: Constituent search and update
+  description: Constituent search, create and update
   links:
     - url: https://github.com/kennethlong/devcentric-test/tree/main
       title: Source Code
@@ -36,5 +36,7 @@ spec:
   lifecycle: production
   owner: team-cm
   system: constituent
+  consumesApis:
+    - constituent-search
   definition:
     $text: https://github.com/kennethlong/devcentric-test/blob/main/constituent-with-profile/swagger.json

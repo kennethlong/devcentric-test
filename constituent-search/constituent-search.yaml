@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: constituent-search
-  description: Search for constituents
+  description: Search for constituents in MDM
 spec:
   type: service
   lifecycle: production
@@ -10,4 +10,4 @@ spec:
   system: constituent
   providesApis:
     - constituent-search
-  subcomponentOf: constituent-with-profile
+
