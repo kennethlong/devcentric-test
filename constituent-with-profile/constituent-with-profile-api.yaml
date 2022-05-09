@@ -10,6 +10,9 @@ metadata:
     - url: https://console-openshift-console.apps.devs1.alsac.stjude.org/topology/ns/cm-constituent?view=graph&selectId=b617162d-b74e-4120-a233-e4c9fe1dee75
       title: Pods
       icon: kubernetes
+    - url: https://console-openshift-console.apps.devs1.alsac.stjude.org/k8s/ns/cm-constituent/pods/constituent-with-profile-green-50-dptwk/logs
+      title: Pod Logs
+      icon: logs
     - url: https://checkmarxip1s1.alsac.local/cxwebclient/portal#/projectState/336/Summary
       title: Checkmarx
       icon: security
