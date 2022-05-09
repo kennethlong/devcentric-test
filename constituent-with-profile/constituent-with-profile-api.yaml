@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: constituent-with-profile
+  description: Constituent search and update
+  links:
+    - url: https://github.com/kennethlong/devcentric-test/tree/main
+      title: Source Code
+      icon: code  
+spec:
+  type: openapi
+  lifecycle: production
+  owner: team-cm
+  definition:
+    $text: https://constituent-with-profile.apps.dev.alsac.stjude.org/swagger/v1/swagger.json
