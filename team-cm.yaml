@@ -9,6 +9,4 @@ spec:
     displayName: CM Team
     email: cmteam@example.com
     picture: https://example.com/groups/bu-infrastructure.jpeg
-  parent: its
-  children: [backstage, other]
-  members: [jdoe]
+
